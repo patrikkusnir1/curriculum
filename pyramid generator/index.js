@@ -1,41 +1,35 @@
-let contacts = [
-  {
-    firstName: "Akira",
-    lastName: "Laine",
-    number: "0543236543",
-    likes: ["Pizza", "Coding", "Brownie Points"],
-  },
-  {
-    firstName: "Harry",
-    lastName: "Potter",
-    number: "0994372684",
-    likes: ["Hogwarts", "Magic", "Hagrid"],
-  },
-  {
-    firstName: "Sherlock",
-    lastName: "Holmes",
-    number: "04873465643",
-    likes: ["Intriguing Cases","Violin"],
-  },
-  {
-    firstName: "Kristian",
-    lastName: "Vos",
-    number: "unknown",
-    likes: ["JavaScript", "Gaming", "Foxes"],
-  },
-];
+const pyramid = (pattern, rows, directionBool) => {
+  let result = "\n";
+  
 
-const lookUpProfile = (name, prop) => {
-  for (const contact of contacts) {
-    if (contact.firstName === name ) {
-      if (contact.hasOwnProperty(prop)) {
-        return contact[prop]
-      } else {
-        return "No such property";
+  if (!directionBool) {
+    // vertex up - normal pyramid
+    for (let i = 0; i < rows; i++) {
+      // add leading spaces
+      for (let j = 0; j < rows - i - 1; j++) {
+        result += " ";
+      }
+      // add pattern
+      for (let k = 0; k < 2 * i + 1; k++) {
+        result += pattern;
+      }
+      result += "\n"; // newline after each row
+    }
+  } else {
+    // vertex down - inverted pyramid
+      for (let i = rows - 1; i >= 0; i--) {
+        // add leading spaces
+        for (let j = 0; j < rows - i - 1; j++) {
+          result += " ";
+        }
+        // add pattern
+        for (let k = 0; k < 2 * i + 1; k++) {
+          result += pattern;
+        }
+        result += "\n"
       }
     }
-  }
-  return "No such contact";
+  return result;
 }
 
-console.log(lookUpProfile("Akira", "likes"));
+console.log(pyramid("o", 4, true))
