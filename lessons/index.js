@@ -1,5 +1,8 @@
-if (true) {
-	var num = 5;
+sayHello();
+
+function sayHello() {
+	console.log("Hello World")
 }
 
-console.log(num)
+console.log(y);
+let y = 10;
