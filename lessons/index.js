@@ -1,19 +1,18 @@
-function getSum(num1, num2) {
-	return num1 + num2;
+function logArgs(...args) {
+	for (const arg of args) {
+		console.log(arg)
+	}
 }
 
-console.log(getSum(3, 4, 5))
+logArgs(1, 2, 3)
 
-function getArg() {
-	return arguments.length;
+// function badFunction(...args = [1, 2] ) {
+
+// }
+
+function hasCat(...args) {
+	return args.includes("cat");
 }
 
-console.log(getArg("example"));
-console.log(getArg("Another","example"));
-
-function hasCat() {
-	return [...arguments].includes("cat");
-}
-
-console.log(hasCat("dog", "chicken", "cat"));
-console.log(hasCat("dog", "chicken", "horse"));
+console.log(hasCat("dog", "chicken", "cat"))
+console.log(hasCat("dog", "chicken", "horse"))
